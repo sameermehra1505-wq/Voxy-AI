@@ -23,6 +23,7 @@ class LeadFormData(BaseModel):
     name: str
     email: EmailStr
     company: str
+    business_domain: str
     phone: str
     use_case: Optional[str] = ""
 
