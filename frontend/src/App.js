@@ -279,9 +279,21 @@ const LeadCaptureSection = () => {
     name: '',
     email: '',
     company: '',
+    business_domain: '',
     phone: '',
     use_case: ''
   });
+
+  const businessDomainOptions = [
+    'SaaS / Software',
+    'E-commerce',
+    'Real Estate',
+    'Healthcare',
+    'Financial Services',
+    'Education',
+    'Marketing / Agencies',
+    'Other'
+  ];
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState('');
@@ -364,7 +376,7 @@ const LeadCaptureSection = () => {
             See Voxy in Action
           </h2>
           <p className="font-body text-slate-600">
-            Submit your details and our AI will call you.
+            Submit your details and our team will call you.
           </p>
         </div>
         
@@ -423,6 +435,26 @@ const LeadCaptureSection = () => {
                 className="w-full h-12 px-4 bg-slate-50 border border-slate-200 rounded-lg font-body text-slate-900 input-focus focus:outline-none"
                 placeholder="Acme Inc."
               />
+            </div>
+            
+            <div>
+              <label htmlFor="business_domain" className="block font-body text-sm font-medium text-slate-700 mb-2">
+                Business Domain
+              </label>
+              <select
+                id="business_domain"
+                name="business_domain"
+                value={formData.business_domain}
+                onChange={handleChange}
+                required
+                data-testid="input-business-domain"
+                className="w-full h-12 px-4 bg-slate-50 border border-slate-200 rounded-lg font-body text-slate-900 input-focus focus:outline-none appearance-none cursor-pointer"
+              >
+                <option value="" disabled>Select your business domain</option>
+                {businessDomainOptions.map((option) => (
+                  <option key={option} value={option}>{option}</option>
+                ))}
+              </select>
             </div>
             
             <div>
